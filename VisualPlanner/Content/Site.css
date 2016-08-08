@@ -127,3 +127,21 @@ textarea {
 .icon-bar{
     background: white;
 }
+
+.row-item{
+    font-size:16px;
+    margin-top:10px;
+}
+
+.row-icon{
+    display: block;
+    margin-top: 35px;
+    margin-left: 10px;
+    color: rgba(0, 113, 117, 1);
+}
+
+.func-header{
+    font-size:36px;
+    text-align:center;
+    margin-bottom: 5px;
+}
