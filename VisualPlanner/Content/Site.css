@@ -140,8 +140,31 @@ textarea {
     color: rgba(0, 113, 117, 1);
 }
 
-.func-header{
+.index-header{
     font-size:36px;
     text-align:center;
     margin-bottom: 5px;
+}
+
+.help-header{
+    text-align:left;
+    margin: 45px 0;
+}
+
+.stick-menu{
+    position: fixed;
+    width: 250px;
+}
+
+.icon-right{
+    float:right;
+}
+
+.query-style{
+    margin: 10px 0;
+}
+
+.no-margin-top{
+    margin-top:0;
+    line-height:35px;
 }
