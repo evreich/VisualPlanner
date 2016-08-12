@@ -1,58 +1,117 @@
 ﻿@{
     ViewBag.Title = "Помощь";
 }
-<div class="container">
+<div class="container" >
+    @if (ViewBag.ShowAlert!=null && ViewBag.ShowAlert)
+    {
+        <div class="alert alert-success alert-dismissible fade in" role="alert" name="successSend">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Сообщение успешно отправлено.</strong> Ожидайте ответ на указанный Вами e-mail.
+        </div>
+    }
     <div class="help-header">
-        <h1 style="font-weight: bold;">Страница поддержки пользователей</h1>
+        <h1 style="font-weight: bold;">Поддержка</h1>
     </div>
     <div class="row">
-        <div class="col-md-3">
-            <div class="list-group stick-menu">
-                <h3 class="no-margin-top">Инструкция</h3>
-                <a href="#" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>1. Как начать работу с приложением</a>
-                <a href="#" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>2. Создание первой задачи</a>
-                <a href="#" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>3. Как создать подзадачу</a>
-                <a href="#" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>4. Что такое проек</a>
-                <a href="#" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>5. Удаление задачи/проекта</a>
-                <a href="#" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>6. Приоритеты</a>
-                <a href="#" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>7. Статусы задач</a>
-                <h3>Обратная связь</h3>
-                <p style="text-align:justify">Остались вопросы? Наша служба поддержки всегда готова Вам помочь!</p>
-                <btn class="btn btn-primary query-style" type="button">Отправить запрос &nbsp;<i class="fa fa-envelope-o" aria-hidden="true"></i></btn>
+        <div class="col-sm-4 col-md-4 col-lg-3">
+            <div class="list-group" id="instraction">
+                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="100">
+                    <li><h3 class="no-margin-top">Инструкция</h3></li>
+                    <li><a href="#advice_1" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>1. Как начать работу с приложением</a></li>
+                    <li><a href="#advice_2" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>2. Создание первой задачи</a></li>
+                    <li><a href="#advice_3" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>3. Как создать подзадачу</a></li>
+                    <li><a href="#advice_4" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>4. Что такое проект</a></li>
+                    <li><a href="#advice_5" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>5. Удаление задачи/проекта</a></li>
+                    <li><a href="#advice_6" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>6. Приоритеты</a></li>
+                    <li><a href="#advice_7" class="list-group-item"><i class="fa fa-chevron-right icon-right"></i>7. Статусы задач</a></li>
+                    <li><h3>Обратная связь</h3></li>
+                    <li><p style="text-align:justify">Остались вопросы? Наша служба поддержки всегда готова Вам помочь!</p></li>
+                    <li><btn class="btn btn-primary query-style" type="button" data-toggle="modal" data-target="#queryModal">Отправить запрос &nbsp;<i class="fa fa-envelope-o" aria-hidden="true"></i></btn></li>  
+                </ul>
+
             </div>
         </div>
-        <div class="col-md-9">
-            <h3 class="no-margin-top"> Инструкция пользователя</h3>
+        <div class="col-sm-8 col-md-8 col-lg-9">
+            <h3 class="no-margin-top"> Руководство пользователя</h3>
             <div class="panel-group">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4><b>1. Как начать работу с приложением</b></h4></div>
+                    <div class="panel-heading"><h4 class="help-item" id="advice_1"><b>1. Как начать работу с приложением</b></h4></div>
                     <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4><b>2. Создание первой задачи</b></h4></div>
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</div>
-               </div>
+                    <div class="panel-heading"><h4 class="help-item" id="advice_2"><b>2. Создание первой задачи</b></h4></div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                    </div>
+                </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4><b>3. Как создать подзадачу</b></h4></div>
+                    <div class="panel-heading"><h4 class="help-item" id="advice_3"><b>3. Как создать подзадачу</b></h4></div>
                     <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4><b>4. Что такое проект</b></h4></div>
+                    <div class="panel-heading"><h4 class="help-item" id="advice_4"><b>4. Что такое проект</b></h4></div>
                     <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4><b>5. Удаление задачи/проекта</b></h4></div>
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</div>
+                    <div class="panel-heading"><h4 class="help-item" id="advice_5"><b>5. Удаление задачи/проекта</b></h4></div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                    </div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4><b>6. Приоритеты</b></h4></div>
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</div>
+                    <div class="panel-heading"><h4 class="help-item" id="advice_6"><b>6. Приоритеты</b></h4></div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                    </div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h4><b>7. Статусы задач</b></h4></div>
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</div>
+                    <div class="panel-heading"><h4 class="help-item" id="advice_7"><b>7. Статусы задач</b></h4></div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- Query modal-->
+    <div class="modal fade" id="queryModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" style="color:white; opacity:1">&times;</button>
+                    <h4 class="modal-title">Отправка запроса</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" id="queryForm" method="post" action="/Home/Help">
+                        <div class="form-group">
+                            <label for="email">Введите ваш e-mail:</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Тема запроса:</label>
+                            <input type="text" class="form-control" id="title" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Описание:</label>
+                            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearForm(queryForm)">Отменить</button>
+                    <button type="submit" form="queryForm" class="btn btn-success pull-left">Отправить</button>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
