@@ -14,6 +14,7 @@ namespace VisualPlanner.Models
         public DbSet<UserModel> Users { get; set; }
         public DbSet<TaskModel> Tasks { get; set; }
         public DbSet<TaskViewModel> TaskViews { get; set; }
+        public DbSet<ExceptionModel> Exceptions { get; set; }
 
     }
 }

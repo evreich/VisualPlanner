@@ -2,7 +2,7 @@
     padding-top: 50px;
 }
 
-html{
+html, body{
     min-height:100%;
     width: 100%;
     height: 100%;
@@ -202,5 +202,8 @@ input, textarea{
         margin-top:15px;
         line-height: 40px;
         font-size: 24px;
+    }
+    .affix{
+        width: 262px;
     }
 }

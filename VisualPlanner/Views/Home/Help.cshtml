@@ -2,14 +2,26 @@
     ViewBag.Title = "Помощь";
 }
 <div class="container" >
-    @if (ViewBag.ShowAlert!=null && ViewBag.ShowAlert)
+    @if (ViewBag.SuccessSend!=null)
     {
-        <div class="alert alert-success alert-dismissible fade in" role="alert" name="successSend">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Сообщение успешно отправлено.</strong> Ожидайте ответ на указанный Вами e-mail.
-        </div>
+        if (ViewBag.SuccessSend)
+        {
+            <div class="alert alert-success alert-dismissible fade in" role="alert" name="successSend">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Сообщение успешно отправлено.</strong> Ожидайте ответ на указанный Вами e-mail.
+            </div>
+        }
+        if (!ViewBag.SuccessSend)
+        {
+            <div class="alert alert-danger alert-dismissible fade in" role="alert" name="successSend">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Возникла ошибка при отправке сообщения.</strong> Повторите отправку запроса.
+            </div>
+        }
     }
     <div class="help-header">
         <h1 style="font-weight: bold;">Поддержка</h1>
