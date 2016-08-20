@@ -29,15 +29,12 @@
             </div>
         </div>
     </div>
-        @RenderBody()
-    <footer class="navbar-bottom">
-        <div class="container">
-            Visual Planner &copy; @DateTime.Now.Year. Все права защищены.
-        </div>
-    </footer>
+    @RenderBody()
+    @Html.Partial("_FooterPartial")
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/Site.js"></script>
+    @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

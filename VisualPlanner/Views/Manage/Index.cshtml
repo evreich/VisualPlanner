@@ -1,84 +1,89 @@
 ﻿@model VisualPlanner.Models.IndexViewModel
 @{
-    ViewBag.Title = "Управление";
+    ViewBag.Title = "Профиль";
 }
-
-<h2>@ViewBag.Title.</h2>
-
-<p class="text-success">@ViewBag.StatusMessage</p>
-<div>
-    <h4>Изменение параметров учетной записи</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>Пароль:</dt>
-        <dd>
-            [
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("Смена пароля", "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink("Создать", "SetPassword")
-            }
-            ]
-        </dd>
-        <dt>Внешние имена входа:</dt>
-        <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("Управление", "ManageLogins") ]
-        </dd>
-        @*
-            Номера телефонов можно использовать в качестве второго проверочного фактора для системы двухфакторной проверки подлинности.
-             
-             В <a href="http://go.microsoft.com/fwlink/?LinkId=403804">этой статье</a>
-                вы можете узнать, как настроить для этого приложения ASP.NET двухфакторную проверку подлинности с использованием SMS.
-             
-             Настроив двухфакторную проверку подлинности, раскомментируйте следующий блок.
-        *@
-        @*  
-            <dt>Номер телефона:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "Нет") [
-                @if (Model.PhoneNumber != null)
-                {
-                    @Html.ActionLink("Изменить", "AddPhoneNumber")
-                    @: &nbsp;|&nbsp;
-                    @Html.ActionLink("Удалить", "RemovePhoneNumber")
-                }
-                else
-                {
-                    @Html.ActionLink("Добавить", "AddPhoneNumber")
-                }
-                ]
-            </dd>
-        *@
-        <dt>Двухфакторная проверка подлинности:</dt>
-        <dd>
-            <p>
-                Поставщики двухфакторной проверки подлинности не настроены. В <a href="http://go.microsoft.com/fwlink/?LinkId=403804">этой статье</a>
-                вы можете узнать, как настроить двухфакторную проверку подлинности в этом приложении ASP.NET.
-            </p>
-            @*@if (Model.TwoFactor)
-                {
-                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+<br />
+<div class="container">
+    <ul class="nav nav-pills" id="profile-pills">
+        <li class="active"><a href="#pill-1" data-toggle="pill">Статистика</a></li>
+        <li><a href="#pill-2" data-toggle="pill">Настройки</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active well" id="pill-1">
+            <h1>Статистика пользователя</h1>
+            <br />
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="help-item" id="advice_1"><b>1. Как начать работу с приложением</b></h4></div>
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="help-item" id="advice_2"><b>2. Создание первой задачи</b></h4></div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum suscipit orci, quis lobortis massa malesuada sit amet. Nam vel lorem aliquet, commodo elit ac, imperdiet urna. Sed sodales faucibus placerat. Ut a elit magna. Aliquam erat volutpat. In in sodales nunc, a tempor mi. Mauris eget justo ac libero maximus consequat. Pellentesque non arcu id nunc faucibus laoreet sed quis sem. Etiam euismod interdum congue. Sed feugiat nulla odio. Donec et dolor gravida, eleifend dui eu, ultrices mi. Integer pretium nisi at massa imperdiet, in faucibus diam vestibulum. Pellentesque faucibus pharetra ex eget molestie. Integer pulvinar ante quis laoreet venenatis. Donec convallis nec arcu non lacinia. Donec aliquam eros arcu, id dapibus neque ornare sed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade well" id="pill-2">
+            <p class="text-success" style="font-size:16px; padding-top:10px;">@ViewBag.StatusMessage</p>
+            <h1>Настройка профиля</h1>
+            <h3>Изменение параметров учетной записи</h3>
+            <br />
+            <dl class="dl-horizontal">
+                <dt class="col-sm-3 style-dt">E-mail:</dt>
+                <dd class="col-sm-9 style-dd">
+                    <div>@(Model.Email ?? "Нет")</div> 
+                    [
+                    @if (Model.Email != null)
                     {
-                        @Html.AntiForgeryToken()
-                        <text>Включено
-                        <input type="submit" value="Отключить" class="btn btn-link" />
-                        </text>
+                        @Html.ActionLink("Смена e-mail", "ChangeEmail")
                     }
-                }
-                else
-                {
-                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    ]
+                </dd>
+                <dt class="col-sm-3 style-dt">Пароль:</dt>
+                <dd class="col-sm-9 style-dd">
+                    [
+                    @if (Model.HasPassword)
                     {
-                        @Html.AntiForgeryToken()
-                        <text>Отключено
-                        <input type="submit" value="Включить" class="btn btn-link" />
-                        </text>
+                        @Html.ActionLink("Смена пароля", "ChangePassword")
                     }
-                }*@
-        </dd>
-    </dl>
+                    else
+                    {
+                        @Html.ActionLink("Создать", "SetPassword")
+                    }
+                    ]
+                </dd>
+                <dt class="col-sm-3 style-dt">Номер телефона:</dt>
+                <dd class="col-sm-9 style-dd">
+                    <div>@(Model.PhoneNumber ?? "Нет")</div> 
+                    [
+
+                    @if (Model.PhoneNumber != null)
+                    {
+                        if (Model.PhoneNumberConfirm)
+                        { 
+                            @Html.ActionLink("Изменить", "AddPhoneNumber", new { Title = "Изменение телефона"})
+                            @: &nbsp;|&nbsp;
+                            @Html.ActionLink("Удалить", "RemovePhoneNumber")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Подтверждение телефона", "VerifyPhoneNumber", new { phoneNumber = Model.PhoneNumber })
+                        }
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Добавить", "AddPhoneNumber", new { Title = "Добавление телефона" })
+                    }
+                    ]
+                </dd>
+                <dt class="col-sm-3 style-dt">Внешние аккаунты:</dt>
+                <dd class="col-sm-9 style-dd">
+                   [ @Html.ActionLink("Управление аккаунтами", "ManageLogins") ]
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>

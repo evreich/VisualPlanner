@@ -6,7 +6,16 @@ $('a[href*="#"]').click(function () {
     }, 400);
     return false;
 });
-
+//очистка форм
 function clearForm(form) {
     $(form)[0].reset();
 }
+//маска ввода телефона
+jQuery(function ($) {
+    $("#phone").mask("+7(999) 999-99-99");
+});
+//переход по вкладкам
+$('#profile-pills a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+})

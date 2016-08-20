@@ -7,11 +7,13 @@ namespace VisualPlanner.Models
 {
     public class IndexViewModel
     {
+        public string Email { get; set; }
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public bool PhoneNumberConfirm { get; set; }
     }
 
     public class ManageLoginsViewModel
@@ -64,6 +66,14 @@ namespace VisualPlanner.Models
         [Phone]
         [Display(Name = "Номер телефона")]
         public string Number { get; set; }
+    }
+
+    public class ChangeEmailViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Адрес электронной почты")]
+        public string Email { get; set; }
     }
 
     public class VerifyPhoneNumberViewModel

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace VisualPlanner.Controllers
 {
+    [Authorize]
     public class OrganizerController : Controller
     {
         // GET: Organizer

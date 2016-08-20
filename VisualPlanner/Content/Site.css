@@ -1,5 +1,6 @@
 ﻿body {
     padding-top: 50px;
+        background: #eeeeee;
 }
 
 html, body{
@@ -155,6 +156,36 @@ input, textarea{
     max-width: none;
 }
 
+.full-page{
+    height: 100%;
+}
+
+.form-group, .form-group input, .form-group a, .form-group button{
+    font-size:16px;
+}
+
+.validation-summary-errors ul>li{
+    font-size: 16px;
+    font-weight: bold;
+    list-style-type: none;
+    padding: 5px 0 5px 0;
+}
+
+.validation-summary-errors ul{
+    padding-left: 0;
+    margin-bottom: -20px;
+}
+
+.style-dt{
+    padding:0 0 10px 0;
+    font-size: 16px;
+}
+
+.style-dd{
+    padding:0;
+    float:none;
+    font-size: 16px;
+}
 
 @media (min-width: 768px) {
     .page-header {height:500px;

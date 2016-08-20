@@ -1,13 +1,12 @@
-﻿@model VisualPlanner.Models.ForgotPasswordViewModel
+﻿@model VisualPlanner.Models.ChangeEmailViewModel
 @{
-    ViewBag.Title = "Забыли пароль?";
+    ViewBag.Title = "Смена e-mail";
 }
 <div class="container">
-
     <br />
     <h1>@ViewBag.Title</h1>
-    <h3>Введите адрес электронной почты.</h3>
-    @using (Html.BeginForm("ForgotPassword", "Account", FormMethod.Post, new { role = "form" }))
+    <h3>Введите новый адрес электронной почты:</h3>
+    @using (Html.BeginForm("ChangeEmail", "Manage", FormMethod.Post, new { role = "form" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -21,7 +20,7 @@
         </div>
         <div class="row">
             <div class="form-group col-sm-2">
-                <input type="submit" class="btn btn-success" value="Отправить" />
+                <input type="submit" class="btn btn-success" value="Изменить" />
             </div>
         </div>
     }

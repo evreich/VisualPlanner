@@ -25,8 +25,11 @@ namespace VisualPlanner.Filters
                 db.Exceptions.Add(exceptionDetail);
                 db.SaveChanges();
             }
-            if(exceptionDetail.ActionName=="Help")
-                filterContext.Result = new RedirectResult("/Error/SendError");
+            filterContext.Controller.ViewBag.Error = filterContext.Exception.Message;
+            ViewResult vr = new ViewResult();
+            vr.ViewName = "Error";
+            vr.ViewBag.Error = filterContext.Exception.Message;
+            filterContext.Result = vr;
             filterContext.ExceptionHandled = true;
         }
     }

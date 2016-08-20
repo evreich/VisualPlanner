@@ -1,28 +1,29 @@
 ﻿@model VisualPlanner.Models.AddPhoneNumberViewModel
-@{
-    ViewBag.Title = "Номер телефона";
-}
 
-<h2>@ViewBag.Title.</h2>
+<div class="container">
+    <br />
+    <h1>@ViewBag.Title</h1>
+    @using (Html.BeginForm("AddPhoneNumber", "Manage", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("AddPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Добавление номера телефона</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Number, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Number, new { @class = "form-control" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <h3>Введите номер телефона</h3>
+        <br />
+        <div class="row">
+            <div class="form-group col-sm-5">
+                @Html.LabelFor(m => m.Number, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Number, new { @class = "form-control", @placeholder = "Например: +7(987) 654-32-11", @id = "phone" })
+                @Html.ValidationMessageFor(m => m.Number, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Отправить" />
+        <div class="row">
+            <div class="form-group col-sm-2">
+                <input type="submit" class="btn btn-success" value="Отправить" />
+            </div>
         </div>
-    </div>
-}
+    }
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
