@@ -25,10 +25,13 @@ namespace VisualPlanner
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/font-awesome.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
             bundles.Add(new StyleBundle("~/bundles/js").Include(
                       "~/Scripts/Site.js"));
+            bundles.Add(new ScriptBundle("~/Content/sidebar").Include(
+                "~/Content/sidebar.css"));
         }
     }
 }

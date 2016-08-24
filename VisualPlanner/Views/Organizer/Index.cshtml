@@ -1,7 +1,14 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Расписание задач";
+    Layout = "/Views/Shared/_LayoutOrganizer.cshtml";
 }
-
-<h2>Index</h2>
+<div class="container-fluid">
+    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;&nbsp;Добавить задачу</button>
+    &nbsp;&nbsp;
+    <button type="button" class="btn btn-danger"><i class="fa fa-close"></i>&nbsp;&nbsp;Удалить задачу</button>
+</div>
+<div class="container-fluid well tasks-place">
+    <h2>Место для графика</h2>
+</div>
 

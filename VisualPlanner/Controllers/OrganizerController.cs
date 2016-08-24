@@ -12,6 +12,8 @@ namespace VisualPlanner.Controllers
         // GET: Organizer
         public ActionResult Index()
         {
+            //возможно параметр с выбранной датой
+            ViewBag.PageTitle = "Расписание задач на сегодня";
             return View();
         }
     }

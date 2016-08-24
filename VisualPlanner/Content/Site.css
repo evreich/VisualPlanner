@@ -1,6 +1,6 @@
 ﻿body {
     padding-top: 50px;
-        background: #eeeeee;
+    background: #eeeeee;
 }
 
 html, body{
@@ -9,13 +9,39 @@ html, body{
     height: 100%;
 }
 
+.tooltip > .tooltip-inner {
+    background-color: rgba(43, 135, 138, 1);
+}
+
+.tooltip.right > .tooltip-arrow {
+    border-right: 5px solid rgba(43, 135, 138, 1)
+}
+
+.navbar-toggle{
+    border: 2px solid white;
+}
+
+.organizer-container{
+    padding-left:25px;
+    padding-right:40px;
+}
+
+.organizer-side-padding{
+    padding-left:40px;
+    z-index:1001;
+}
+
 footer{
     height:30px;
     font-size: 16px;
-    background: rgba(0, 113, 117, 0.82);
+    background: rgba(43, 135, 138, 1);
     color: white;
     padding-top: 5px;
     margin-top:20px;
+}
+
+.organizer-body{
+    background: white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -24,6 +50,18 @@ footer{
     padding-right: 15px;
 }
 
+#sidebar-fa{
+    color: #106262;
+}
+.fa-li{
+    position:initial;
+}
+
+.style-hr{
+    border: 1px solid #94b9bd;
+    margin-top:0;
+    margin-bottom:0;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -40,7 +78,6 @@ textarea {
 
 .navbar-style{
     background: rgba(0, 113, 117, 0.82);
-    border-bottom: 2px solid rgb(28, 134, 112);
 }
 
 .navbar-style a{
@@ -187,6 +224,45 @@ input, textarea{
     font-size: 16px;
 }
 
+.tasks{
+    border:3px solid #106262;
+    border-radius: 15px;
+    margin:15px 10px 30px 10px;
+}
+.tasks ul{
+    padding:10px 10px 0 10px;
+    text-align:center;
+}
+.tasks li{
+    list-style:none;
+}
+
+.tasks li a{
+    color: #106262;
+    text-decoration:underline;
+    font-size: 15px;
+    text-align:center;
+}
+.tasks li:last-child a{
+    display:block;
+    text-decoration:none;
+    margin-top:10px;
+}
+
+.badge{
+    display:initial;
+    background-color: #106262;
+}
+.page-title{
+    display:inline-block; 
+    margin-top:5px; 
+    margin-bottom:20px;
+}
+
+.tasks-place{
+    margin-top:15px;
+    height:570px;
+}
 @media (min-width: 768px) {
     .page-header {height:500px;
                   padding-top:10px;

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/sidebar")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="organizer-body">
+    <div class="navbar navbar-style navbar-fixed-top">
+        <div class="organizer-container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Visual Planner", "Index", "Organizer", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="/Organizer/Index"><i class="fa-li fa fa-calendar-o fa" aria-hidden="true"></i>&nbsp;&nbsp;Сегодня</a>
+                </li>
+                <li>
+                    <a href="/Organizer/Calendar"><i class="fa-li fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;Календарь</a>
+                </li>
+                <li>
+                    <a href="/Organizer/Projects"><i class="fa-li fa fa-tasks" aria-hidden="true"></i>&nbsp;&nbsp;Проекты</a>
+                </li>
+                <li>
+                    <a href="/Organizer/Search"><i class="fa-li fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Поиск</a>
+                </li>
+            </ul>
+            <hr class="style-hr"/>
+            @Html.Partial("_TasksPartial")
+            
+        </div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <a href="#menu-toggle" id="menu-toggle" class="menu-toggle btn btn-default">
+                            <i id="sidebar-fa" class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="col-xs-8 text-center">
+                        <h2 class="page-title">@ViewBag.PageTitle</h2>
+                    </div>
+                </div>  
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <footer class="navbar-fixed-bottom organizer-side-padding">
+        Visual Planner &copy; @DateTime.Now.Year. Все права защищены.
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

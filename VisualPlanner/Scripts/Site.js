@@ -19,3 +19,21 @@ $('#profile-pills a').click(function (e) {
     e.preventDefault()
     $(this).tab('show')
 })
+//scrollbar
+$("#menu-toggle").click(function (e) {
+    e.preventDefault();
+    if ($("#sidebar-fa").hasClass("fa-chevron-left"))
+    {
+        $("#sidebar-fa").removeClass("fa-chevron-left");
+        $("#sidebar-fa").addClass("fa-chevron-right");
+    }
+    else {
+        $("#sidebar-fa").removeClass("fa-chevron-right");
+        $("#sidebar-fa").addClass("fa-chevron-left");
+    }
+    $("#wrapper").toggleClass("toggled");
+});
+//появление подсказки
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip({ delay: 750 });
+});
