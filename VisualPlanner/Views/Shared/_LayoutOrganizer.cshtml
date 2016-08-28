@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/calendar")
 </head>
-<body>
+<body class="organizer-body">
     <div class="navbar navbar-style navbar-fixed-top">
         <div class="organizer-container">
             <div class="navbar-header">
@@ -19,6 +19,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a href="#menu-toggle" id="menu-toggle" class="menu-toggle btn btn-default">
+                    <i id="sidebar-fa" class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
                 @Html.ActionLink("Visual Planner", "Index", "Organizer", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
@@ -48,15 +51,10 @@
             @Html.Partial("_TasksPartial")
             
         </div>
-        <div id="page-content-wrapper" class="organizer-body">
+        <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-2">
-                        <a href="#menu-toggle" id="menu-toggle" class="menu-toggle btn btn-default">
-                            <i id="sidebar-fa" class="fa fa-chevron-right" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="col-xs-8 text-center">
+                    <div class="text-center">
                         <h2 class="page-title">@ViewBag.PageTitle</h2>
                     </div>
                 </div>

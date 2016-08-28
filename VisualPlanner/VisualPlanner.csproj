@@ -227,6 +227,7 @@
     <Content Include="Scripts\calendar.js" />
     <Content Include="Scripts\calendar.min.js" />
     <Content Include="Scripts\ru-RU.js" />
+    <Content Include="Scripts\salvattore.min.js" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
     <Content Include="Scripts\underscore.min.map" />

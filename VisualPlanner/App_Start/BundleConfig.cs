@@ -11,7 +11,8 @@ namespace VisualPlanner
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery.maskedinput.js",
-                        "~/Scripts/jquery.underscore.js"));
+                        "~/Scripts/jquery.underscore.js",
+                        "~/Scripts/salvattore.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

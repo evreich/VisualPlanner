@@ -53,9 +53,6 @@ footer{
     padding-right: 15px;
 }
 
-#sidebar-fa{
-    color: #106262;
-}
 .fa-li{
     position:initial;
 }
@@ -260,11 +257,12 @@ input, textarea{
     display:inline-block; 
     margin-top:5px; 
     margin-bottom:20px;
+    font-weight: bold;
 }
 
 .tasks-place{
     margin-top:15px;
-    height:570px;
+    height:560px;
 }
 
 .task{
@@ -272,6 +270,7 @@ input, textarea{
     border: 3px solid #106262;
     border-radius: 7px;
     margin-top: 20px;
+    position: relative;
 }
 .task-header{
     background: #eeeeee;
@@ -302,8 +301,8 @@ input, textarea{
 }
 
 .task-menu ul{
-    top: 73px;
-    right: 17px !important;
+    top: 50px;
+  
 }
 
 .task-menu li a{
@@ -322,7 +321,17 @@ input, textarea{
     font-size: 20px;
 }
 
+@media screen and (max-width: 767px){
+    .masonry[data-columns]:before{
+        content: '1 .col-xs-12 .col-sm-6 .col-md-6 .col-lg-4';
+    }
+}
+
 @media (min-width: 768px) {
+    .masonry[data-columns]:before{
+        content: '2 .col-xs-12 .col-sm-6 .col-md-6 .col-lg-4';
+    }
+
     .page-header {height:500px;
                   padding-top:10px;
     }
@@ -340,6 +349,10 @@ input, textarea{
 }
 
 @media (min-width: 992px){
+    .masonry[data-columns]:before{
+        content: '2 .col-xs-12 .col-sm-6 .col-md-6 .col-lg-4';
+    }
+
     .page-header {height:675px;
                   padding-top:60px;
     }
@@ -358,6 +371,10 @@ input, textarea{
 }
 
 @media (min-width: 1200px){
+    .masonry[data-columns]:before{
+        content: '3 .col-xs-12 .col-sm-6 .col-md-6 .col-lg-4';
+    }
+
     .page-header {height:750px;}
     .page-header h1{
     line-height: 65px;

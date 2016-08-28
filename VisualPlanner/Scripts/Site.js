@@ -1,6 +1,6 @@
 ﻿//Плавный переход к якорям
 var $page = $('html, body');
-$('a[href*="#"]').click(function () {
+$('a[class="list-group-item"]').click(function () {
     $page.animate({
         scrollTop: $($.attr(this, 'href')).offset().top
     }, 400);
