@@ -8,8 +8,9 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/sidebar")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/calendar")
 </head>
-<body class="organizer-body">
+<body>
     <div class="navbar navbar-style navbar-fixed-top">
         <div class="organizer-container">
             <div class="navbar-header">
@@ -47,7 +48,7 @@
             @Html.Partial("_TasksPartial")
             
         </div>
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" class="organizer-body">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-2">
@@ -58,7 +59,7 @@
                     <div class="col-xs-8 text-center">
                         <h2 class="page-title">@ViewBag.PageTitle</h2>
                     </div>
-                </div>  
+                </div>
                 @RenderBody()
             </div>
         </div>
@@ -66,8 +67,10 @@
     <footer class="navbar-fixed-bottom organizer-side-padding">
         Visual Planner &copy; @DateTime.Now.Year. Все права защищены.
     </footer>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Script/calendar")
     @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
 </body>

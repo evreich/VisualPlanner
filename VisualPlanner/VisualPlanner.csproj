@@ -200,6 +200,17 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\calendar.css" />
+    <Content Include="Content\calendar.min.css" />
+    <Content Include="Content\CalendarTemplates\day.html" />
+    <Content Include="Content\CalendarTemplates\events-list.html" />
+    <Content Include="Content\CalendarTemplates\modal.html" />
+    <Content Include="Content\CalendarTemplates\month-day.html" />
+    <Content Include="Content\CalendarTemplates\month.html" />
+    <Content Include="Content\CalendarTemplates\week-days.html" />
+    <Content Include="Content\CalendarTemplates\week.html" />
+    <Content Include="Content\CalendarTemplates\year-month.html" />
+    <Content Include="Content\CalendarTemplates\year.html" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\index_bg.jpg" />
@@ -213,6 +224,12 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Scripts\calendar.js" />
+    <Content Include="Scripts\calendar.min.js" />
+    <Content Include="Scripts\ru-RU.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.min.js" />
+    <Content Include="Scripts\underscore.min.map" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\bootstrap.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -267,6 +284,9 @@
     <Content Include="Views\Organizer\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutOrganizer.cshtml" />
     <Content Include="Views\Shared\_TasksPartial.cshtml" />
+    <Content Include="Views\Organizer\Calendar.cshtml" />
+    <Content Include="Views\Organizer\Projects.cshtml" />
+    <Content Include="Views\Organizer\Search.cshtml" />
     <None Include="Web.SECRETS.config" />
   </ItemGroup>
   <ItemGroup>

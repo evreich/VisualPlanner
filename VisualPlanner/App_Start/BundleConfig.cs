@@ -10,7 +10,8 @@ namespace VisualPlanner
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery.maskedinput.js"));
+                        "~/Scripts/jquery.maskedinput.js",
+                        "~/Scripts/jquery.underscore.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -28,10 +29,16 @@ namespace VisualPlanner
                       "~/Content/font-awesome.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
-            bundles.Add(new StyleBundle("~/bundles/js").Include(
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
                       "~/Scripts/Site.js"));
-            bundles.Add(new ScriptBundle("~/Content/sidebar").Include(
-                "~/Content/sidebar.css"));
+            bundles.Add(new StyleBundle("~/Content/sidebar").Include(
+                      "~/Content/sidebar.css"));
+            bundles.Add(new StyleBundle("~/Content/calendar").Include(
+                      "~/Content/calendar.css"));
+            bundles.Add(new ScriptBundle("~/Script/calendar").Include(
+                "~/Scripts/underscore.js",
+                "~/Scripts/ru-RU.js",      
+                "~/Scripts/calendar.js"));
         }
     }
 }

@@ -28,6 +28,11 @@
     padding-left: 270px;
 }
 
+#page-content-wrapper{
+        transition: background-color 1s ease;
+        transition: opacity 1s ease;
+}
+
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;

@@ -16,6 +16,9 @@ html, body{
 .tooltip.right > .tooltip-arrow {
     border-right: 5px solid rgba(43, 135, 138, 1)
 }
+.tooltip.top > .tooltip-arrow {
+    border-top: 5px solid rgba(43, 135, 138, 1)
+}
 
 .navbar-toggle{
     border: 2px solid white;
@@ -263,6 +266,62 @@ input, textarea{
     margin-top:15px;
     height:570px;
 }
+
+.task{
+    color: #106262;
+    border: 3px solid #106262;
+    border-radius: 7px;
+    margin-top: 20px;
+}
+.task-header{
+    background: #eeeeee;
+    border-bottom: 3px solid #106262;
+    padding: 10px 0 0 0;
+    border-radius: 5px 6px 0 0;
+    margin-left:0;
+    margin-right:0;
+}
+
+.task-header a{
+    display:inline-block;
+    color: #106262;
+    font-size: 28px;
+    margin-top:-5px;
+}
+
+.task-title{
+    font-size:20px;
+    padding-right: 0;
+    padding-left: 10px;
+}
+
+.task-title i{
+    font-size: 26px;
+    cursor:help;
+    padding-left:0;
+}
+
+.task-menu ul{
+    top: 73px;
+    right: 17px !important;
+}
+
+.task-menu li a{
+    font-size: 16px;
+    color: #106262;
+    margin-top:0;
+    padding-left: 15px;
+}
+
+.task-content{
+    padding: 10px 10px 0 10px;
+    font-size: 16px;
+}
+
+.task-content span{
+    font-size: 20px;
+}
+
 @media (min-width: 768px) {
     .page-header {height:500px;
                   padding-top:10px;

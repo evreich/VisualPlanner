@@ -16,5 +16,20 @@ namespace VisualPlanner.Controllers
             ViewBag.PageTitle = "Расписание задач на сегодня";
             return View();
         }
+        public ActionResult Calendar()
+        {
+            ViewBag.PageTitle = "Календарь";
+            return View();
+        }
+        public ActionResult Projects()
+        {
+            ViewBag.PageTitle = "Проекты";
+            return View();
+        }
+        public ActionResult Search()
+        {
+            ViewBag.PageTitle = "Поиск задач";
+            return View();
+        }
     }
 }
