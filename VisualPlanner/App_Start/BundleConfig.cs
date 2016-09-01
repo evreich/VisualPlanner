@@ -26,20 +26,24 @@ namespace VisualPlanner
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new ScriptBundle("~/Content/css").Include(
                       "~/Content/font-awesome.css",
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                       "~/Scripts/Site.js"));
             bundles.Add(new StyleBundle("~/Content/sidebar").Include(
-                      "~/Content/sidebar.css"));
+                      "~/Content/sidebar.css",
+                      "~/Content/bootstrap-datetimepicker.css"));
             bundles.Add(new StyleBundle("~/Content/calendar").Include(
                       "~/Content/calendar.css"));
             bundles.Add(new ScriptBundle("~/Script/calendar").Include(
                 "~/Scripts/underscore.js",
                 "~/Scripts/ru-RU.js",      
-                "~/Scripts/calendar.js"));
+                "~/Scripts/calendar.js",
+                "~/Scripts/moment.js",
+                "~/Scripts/moment-with-locales.js",
+                "~/Scripts/bootstrap-datetimepicker.js"));
         }
     }
 }

@@ -1,8 +1,12 @@
 ﻿@{
-    ViewBag.Title = "Расписание задач";
+    ViewBag.Title = "Проекты";
     Layout = "/Views/Shared/_LayoutOrganizer.cshtml";
 }
-
+<div class="actions">
+    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;&nbsp;Добавить проект</button>
+    &nbsp;&nbsp;
+    <button type="button" class="btn btn-danger"><i class="fa fa-close"></i>&nbsp;&nbsp;Удалить проект</button>
+</div>
 <div class="row masonry" data-columns>
     <div class="item">
         <div class="task">

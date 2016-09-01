@@ -31,5 +31,15 @@ namespace VisualPlanner.Controllers
             ViewBag.PageTitle = "Поиск задач";
             return View();
         }
+        public ActionResult OldTasks()
+        {
+            ViewBag.PageTitle = "Неоконченные задачи";
+            return View();
+        }
+        public ActionResult HotTasks()
+        {
+            ViewBag.PageTitle = "Оканчивающиеся задачи";
+            return View();
+        }
     }
 }

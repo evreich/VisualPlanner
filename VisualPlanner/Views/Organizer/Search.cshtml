@@ -1,7 +1,157 @@
 ﻿@{
-    ViewBag.Title = "Расписание задач";
+    ViewBag.Title = "Поиск";
     Layout = "/Views/Shared/_LayoutOrganizer.cshtml";
 }
 
-<h2>Search</h2>
+<div class="row">
+    <div class="col-sm-12 search">
+        <div class="input-group" id="adv-search">
+            <input type="text" class="form-control" placeholder="Введите название" />
+            <div class="input-group-btn">
+                <div class="btn-group" role="group">
+                    <div class="dropdown dropdown-lg">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                        <div class="dropdown-menu dropdown-menu" role="menu">
+                            <form name="search" class="form-horizontal" role="form">
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="time_begin">С</label>
+                                        <div class='input-group date' name="time_begin" id='time_begin'>
+                                            <input type='text' class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="fa fa-calendar">
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="time_end">По</label>
+                                        <div class='input-group date' name="time_end" id='time_end'>
+                                            <input type='text' class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="fa fa-calendar">
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="status">Статус</label>
+                                        <select class="form-control" name="status" id="status">
+                                            <option value="#" selected>Не указан</option>
+                                            <option value="#">Приостановлено</option>
+                                            <option value="#">Выполняется</option>
+                                            <option value="#">Завершено</option>
+                                            <option value="#">Отменено</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="priority">Приоритет</label>
+                                        <select class="form-control" name="priority" id="priority">
+                                            <option value="#" selected>Не указан</option>
+                                            <option value="#">Низкий</option>
+                                            <option value="#">Средний</option>
+                                            <option value="#">Высокий</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        <label for="type">Тип задачи</label>
+                                        <select class="form-control" name="type" id="type">
+                                            <option value="#" selected>Не указан</option>
+                                            <option value="#">Задача</option>
+                                            <option value="#">Проект</option>
+                                            <option value="#">Событие</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="button" onclick="clearForm(search)" class="btn btn-default pull-left" style="background:#eeeeee; border-radius:4px;">Сбросить</button>
+                                <button type="submit" class="btn btn-default pull-right" style="background:#eeeeee">Поиск</button>
+                            </form>
+                        </div>
+                    </div>
+                    <button type="submit" form="search" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="text-center">
+        <h2 class="page-title">Результаты поиска</h2>
+    </div>
+</div>
+<div class="row masonry" data-columns>
+    <div class="item">
+        <div class="task">
+            <div class="row task-header">
+                <div class="pull-left task-title col-sm-10">
+                    <p><i class="fa fa-2x fa-info-circle tooltip-elem" aria-hidden="true" title="Инфо о выбранной задаче" data-original-title="Инфо о выбранной задаче"></i>&nbsp;Заголовок проекта заголовок заголовок заголовок</p>
+                </div>
+                <div class="pull-right task-menu">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" id="task-menu"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="task-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-eye"></i> Посмотреть</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-edit"></i> Изменить</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-trash-o"></i>&nbsp; Удалить</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="task-content">
+                <p><span class="fa fa-hourglass-o"></span>&nbsp; <i>16/03/2016</i> 23:00</p>
+                <p><span class="fa fa-hourglass"></span>&nbsp; <i>28/03/2016</i>&nbsp;12:00</p>
+                <p><span class="glyphicon glyphicon-fire"></span>&nbsp; Высокий</p>
+                <p><span class="fa fa-crosshairs"></span>&nbsp;  Закончена </p>
+                <p><span class="fa fa-clipboard"></span>&nbsp; Задача</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="task">
+            <div class="row task-header">
+                <div class="pull-left task-title col-sm-10">
+                    <p><i class="fa fa-2x fa-info-circle tooltip-elem" aria-hidden="true" title="Инфо о выбранной задаче" data-original-title="Инфо о выбранной задаче"></i>&nbsp;Заголовок проекта</p>
+                </div>
+                <div class="pull-right task-menu">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" id="task-menu"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="task-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-eye"></i> Посмотреть</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-edit"></i> Изменить</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-trash-o"></i>&nbsp; Удалить</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="task-content">
+                <p><span class="fa fa-hourglass-o"></span>&nbsp; <i>16/03/2016</i> 23:00</p>
+                <p><span class="fa fa-hourglass"></span>&nbsp; <i>28/03/2016</i>&nbsp;12:00</p>
+                <p><span class="glyphicon glyphicon-fire"></span>&nbsp; Средний</p>
+                <p><span class="fa fa-crosshairs"></span>&nbsp;  Закончена </p>
+                <p><span class="fa fa-clipboard"></span>&nbsp; Проект</p>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="task">
+            <div class="row task-header">
+                <div class="pull-left task-title col-sm-10">
+                    <p><i class="fa fa-2x fa-info-circle tooltip-elem" aria-hidden="true" title="Инфо о выбранной задаче" data-original-title="Инфо о выбранной задаче"></i>&nbsp;Заголовок</p>
+                </div>
+                <div class="pull-right task-menu">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" id="task-menu"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="task-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-eye"></i> Посмотреть</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-edit"></i> Изменить</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-trash-o"></i>&nbsp; Удалить</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="task-content">
+                <p><span class="fa fa-hourglass-o"></span>&nbsp; <i>16/03/2016</i> 23:00</p>
+                <p><span class="fa fa-hourglass"></span>&nbsp; <i>28/03/2016</i>&nbsp;12:00</p>
+                <p><span class="glyphicon glyphicon-fire"></span>&nbsp; Высокий</p>
+                <p><span class="fa fa-crosshairs"></span>&nbsp;  Выполняется </p>
+                <p><span class="fa fa-clipboard"></span>&nbsp; Задача</p>
+            </div>
+        </div>
+    </div>
+</div>
 

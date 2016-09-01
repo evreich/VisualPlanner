@@ -320,7 +320,63 @@ input, textarea{
 .task-content span{
     font-size: 20px;
 }
+/*Search style*/
+.search{
+    margin-bottom: 25px;
+}
 
+.search .btn-group, .search .input-group-btn{
+    position:initial;
+}
+.search .form-control{
+    display: block;  
+}
+.search select{
+    max-width:none;
+    padding-left:4px;
+}
+
+.search input{
+    padding-left:7px;
+}
+
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 10px 14px;
+}
+.dropdown.dropdown-lg {
+    position: static !important;
+}
+
+.input-group-btn .btn-group {
+    display: flex !important;
+    white-space:normal;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+#adv-search {
+    width: 500px;
+    margin: 0 auto;
+}
+/*End search style*/
 @media screen and (max-width: 767px){
     .masonry[data-columns]:before{
         content: '1 .col-xs-12 .col-sm-6 .col-md-6 .col-lg-4';
@@ -332,8 +388,9 @@ input, textarea{
         content: '2 .col-xs-12 .col-sm-6 .col-md-6 .col-lg-4';
     }
 
-    .page-header {height:500px;
-                  padding-top:10px;
+    .page-header {
+        height:500px;
+        padding-top:10px;
     }
     .page-header h1{
     line-height: 45px;

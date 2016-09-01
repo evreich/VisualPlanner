@@ -46,8 +46,19 @@ $(".tooltip-elem").tooltip({
 });
 //календарь
 var calendar = $("#calendar").calendar(
-    {
-        language: 'xx-XX',
-        tmpl_path: "/Content/CalendarTemplates/",
-        events_source: function () { return []; }
+{
+    language: 'xx-XX',
+    tmpl_path: "/Content/CalendarTemplates/",
+    events_source: function () { return []; }
+});
+//datepicker
+$(function () {
+    $('#time_begin').datetimepicker({
+        format: 'DD/MM/YYYY',
+        locale: 'ru',
     });
+    $('#time_end').datetimepicker({
+        format: 'DD/MM/YYYY',
+        locale: 'ru'
+    });
+});
