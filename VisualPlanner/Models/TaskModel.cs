@@ -25,8 +25,11 @@ namespace VisualPlanner.Models
 
     public enum TaskType
     {
+        [Display(Name = "Задача")]
         Task,
+        [Display(Name = "Событие")]
         Event,
+        [Display(Name = "Проект")]
         Project
     }
 
@@ -57,12 +60,12 @@ namespace VisualPlanner.Models
         public string Title { get; set; }
         
         [Required(ErrorMessage = "Необходимо указать дату")]
-        [Display(Name = "Дата и время начала")]
+        [Display(Name = "Дата начала")]
         [DisplayFormat(DataFormatString = "dd/MM/yyyy hh:mm")]
         public DateTime TimeBegin { get; set; }
         
         [Required(ErrorMessage = "Необходимо указать дату")]
-        [Display(Name = "Дата и время окончания")]
+        [Display(Name = "Дата окончания")]
         [DisplayFormat(DataFormatString = "dd/MM/yyyy hh:mm")]
         public DateTime TimeEnd { get; set; }
         
@@ -70,7 +73,6 @@ namespace VisualPlanner.Models
         [StringLength(100, ErrorMessage = "Длина описания должна быть до 100 символов")]
         public string Note { get; set; }
         
-        [Required(ErrorMessage = "Необходимо выбрать режим")]
         [Display(Name = "Напоминание")]
         public bool Remind { get; set; }
         
@@ -82,6 +84,7 @@ namespace VisualPlanner.Models
         public bool Repeat { get; set; }
         
         [Display(Name = "Периодичность")]
+        [Range(1,1000, ErrorMessage = "Недопустимое значение")]
         public int Period { get; set; }
         
         [Display(Name = "Дата окончания повторений")]
@@ -97,11 +100,10 @@ namespace VisualPlanner.Models
         [ScaffoldColumn(false)]
         public int? ParentTaskId { get; set; }
 
-        [ScaffoldColumn(false)]
+        [Display(Name = "Проект")]
         public TaskModel ParentTask { get; set; }
 
         [ScaffoldColumn(false)]
         public virtual List<TaskViewModel> TaskViews { get; set; }
-
     }
 }

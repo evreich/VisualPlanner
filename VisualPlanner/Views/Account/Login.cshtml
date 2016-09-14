@@ -24,8 +24,8 @@
             </div>
             <div class="form-group">
                 <div class="checkbox">
-                    @Html.LabelFor(m => m.RememberMe)
-                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe, new { @class = "remember-me" })
+                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "remember-me" })
                     <div class="pull-right">
                         @Html.ActionLink("Забыли пароль?", "ForgotPassword")
                     </div>

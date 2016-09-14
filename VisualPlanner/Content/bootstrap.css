@@ -2528,8 +2528,8 @@ fieldset[disabled] .checkbox label {
 .input-sm,
 .form-group-sm .form-control {
   height: 30px;
-  padding: 5px 10px;
-  font-size: 12px;
+  padding: 5px 5px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VisualPlanner.Models;
 
 namespace VisualPlanner.Controllers
 {
@@ -14,6 +15,14 @@ namespace VisualPlanner.Controllers
         {
             //возможно параметр с выбранной датой
             ViewBag.PageTitle = "Расписание задач на сегодня";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index(TaskModel task, string period_type)
+        {
+            //возможно параметр с выбранной датой
+            ViewBag.PageTitle = "Расписание задач на сегодня";
+
             return View();
         }
         public ActionResult Calendar()

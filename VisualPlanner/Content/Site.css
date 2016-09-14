@@ -320,6 +320,27 @@ input, textarea{
 .task-content span{
     font-size: 20px;
 }
+
+.remember-me{
+    padding-left: 0 !important;
+}
+
+input.remember-me{
+    margin-top: 5px;
+    margin-left: 5px !important;
+}
+
+.justify{
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float:none;
+}
+.justify>label{
+    display: table-cell;
+    float: none;
+    text-align: center;
+}
 /*Search style*/
 .search{
     margin-bottom: 25px;
@@ -330,6 +351,9 @@ input, textarea{
 }
 .search .form-control{
     display: block;  
+}
+.search .form-group{
+    margin-bottom:10px;
 }
 .search select{
     max-width:none;
@@ -377,6 +401,63 @@ input, textarea{
     margin: 0 auto;
 }
 /*End search style*/
+.form-horizontal .control-label{
+    text-align:left;
+}
+
+.form-group-sm{
+    margin-bottom: 7px;
+}
+
+.form-group-sm::before{
+    display:table;
+    content: " ";
+}
+
+.form-group-sm::after{
+    display:table;
+    content: " ";
+    clear:both
+}
+
+.required{
+    color: #BA0000; 
+    font-family: Verdana; 
+    font-size: 12px; 
+    font-weight: bold;
+}
+
+.modal-task .checkbox-inline:first-child{
+    padding-left:0;
+}
+
+.modal-task{
+    width:700px;
+}
+
+.modal-task .modal-body{
+    padding-bottom:5px;
+}
+
+.form-note{
+    height: 55px !important;
+    resize: none;
+}
+
+.form-group-sm select{
+    max-width:none;
+}
+
+.additional-form{
+    display:none;
+}
+
+.period-label{
+    float:left; 
+    margin-right:5px;
+    font-weight:normal;
+}
+
 @media screen and (max-width: 767px){
     .masonry[data-columns]:before{
         content: '1 .col-xs-12 .col-sm-6 .col-md-6 .col-lg-4';
