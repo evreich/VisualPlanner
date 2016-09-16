@@ -1,16 +1,20 @@
-﻿@if (ViewBag.FixedFooter)
+﻿@if (ViewBag.FixedFooter != null)
 {
-    <footer class="navbar-fixed-bottom">
-        <div class="container">
-            Visual Planner &copy; @DateTime.Now.Year. Все права защищены.
-        </div>
-    </footer>
+     if (ViewBag.FixedFooter)
+     {
+        <footer class="navbar-fixed-bottom">
+            <div class="container">
+                Visual Planner &copy; @DateTime.Now.Year. Все права защищены.
+            </div>
+        </footer>
+     }
+     else
+     {
+        <footer class="navbar-bottom">
+            <div class="container">
+                Visual Planner &copy; @DateTime.Now.Year. Все права защищены.
+            </div>
+        </footer>
+     }
 }
-else
-{
-    <footer class="navbar-bottom">
-        <div class="container">
-            Visual Planner &copy; @DateTime.Now.Year. Все права защищены.
-        </div>
-    </footer>
-}
+

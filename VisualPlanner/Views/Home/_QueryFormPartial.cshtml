@@ -1,0 +1,58 @@
+﻿@model VisualPlanner.Models.HelpViewModel
+<div class="modal fade" id="queryModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" style="color:white; opacity:1">&times;</button>
+                <h4 class="modal-title">Отправка запроса</h4>
+            </div>
+            <div class="modal-body">
+                @if (Request.IsAuthenticated)
+                {
+                    <form role="form" id="queryForm" method="post" action="/Home/Help">
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(m => m.Email, new { Value = @ViewBag.Email })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Title)
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Comment)
+                            @Html.TextAreaFor(m => m.Comment, new { @class = "form-control", @style = "resize: none;" })
+                            @Html.ValidationMessageFor(m => m.Comment, "", new { @class = "text-danger" })
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    <form role="form" id="queryForm" method="post" action="/Home/Help">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Title)
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Comment)
+                            @Html.TextAreaFor(m => m.Comment, new { @class = "form-control", @style = "resize: none;" })
+                            @Html.ValidationMessageFor(m => m.Comment, "", new { @class = "text-danger" })
+                        </div>
+                    </form>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearForm(queryForm)">Отменить</button>
+                <button type="submit" form="queryForm" class="btn btn-success pull-left">Отправить</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -7,8 +7,6 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/sidebar")
-    @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/calendar")
 </head>
 <body class="organizer-body">
     <div class="navbar navbar-style navbar-fixed-top">
@@ -65,11 +63,11 @@
     <footer class="navbar-fixed-bottom organizer-side-padding">
         Visual Planner &copy; @DateTime.Now.Year. Все права защищены.
     </footer>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Script/calendar")
     @Scripts.Render("~/bundles/js")
-    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -47,30 +47,19 @@ $(".tooltip-elem").tooltip({
     delay: 250
 });
 //календарь
-var calendar = $("#calendar").calendar(
-{
-    language: 'ru-RU',
-    tmpl_path: "/Content/CalendarTemplates/",
-    events_source: function () { return []; }
-});
-//datepicker
 $(function () {
-    $('#time_begin').datetimepicker({
-        format: 'DD.MM.YYYY',
-        locale: 'ru',
-    });
-    $('#time_end').datetimepicker({
-        format: 'DD.MM.YYYY',
-        locale: 'ru'
-    });
-    $('#time_begin_task').datetimepicker({
-        locale: 'ru',
-    });
-    $('#time_end_task').datetimepicker({
-        locale: 'ru'
-    });
-});
-//
+    if ($('#calendar').length > 0)
+    {
+        var calendar = $("#calendar").calendar(
+        {
+            language: 'ru-RU',
+            tmpl_path: "/Content/CalendarTemplates/",
+            events_source: function () { return []; }
+        });
+    }
+})
+
+//запрет/открытие рабочей области
 $('#menu-toggle').click(function () {
     if ($('#sidebar-fa').hasClass("fa-chevron-left"))
         $('#page-content-wrapper').css("z-index", -100)

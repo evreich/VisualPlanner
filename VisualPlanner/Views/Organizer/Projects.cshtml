@@ -2,8 +2,23 @@
     ViewBag.Title = "Проекты";
     Layout = "/Views/Shared/_LayoutOrganizer.cshtml";
 }
+
+
+@if (ViewBag.Error != null)
+{
+    if (ViewBag.Error)
+    {
+        <div class="alert alert-danger alert-dismissible fade in" role="alert" name="Error" id="Error">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Произошла ошибка создания проекта.</strong> Повторите создание проекта, введя корректные данные.
+        </div>
+    }
+}
+
 <div class="actions">
-    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;&nbsp;Добавить проект</button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newProject"><i class="fa fa-plus"></i>&nbsp;&nbsp;Добавить проект</button>
     &nbsp;&nbsp;
     <button type="button" class="btn btn-danger"><i class="fa fa-close"></i>&nbsp;&nbsp;Удалить проект</button>
 </div>
@@ -147,3 +162,12 @@
         </div>
     </div>
 </div>
+
+@Html.Partial("_AddProjectFormPartial")
+
+@Scripts.Render("~/bundles/salvattore")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Script/datetimepicker")
+
+}

@@ -11,7 +11,6 @@ using VisualPlanner.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using VisualPlanner.Models;
 
 namespace VisualPlanner.Controllers
 {
@@ -49,31 +48,31 @@ namespace VisualPlanner.Controllers
             }
             return View();
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [ExceptionLogger]
-        public ActionResult Help(string email, string title, string comment)
+        public ActionResult Help(HelpViewModel query)
         {
-            MailAddress from = new MailAddress(ConfigurationManager.AppSettings["EmailSender"]);
-            MailAddress to = new MailAddress(ConfigurationManager.AppSettings["EmailReceiver"]);
-            MailMessage message = new MailMessage(from, to);
-            message.Subject = title;
-            message.Body = "<h2>E-mail отправителя: " + email + "</h2>" + "<p><b>Текст запроса: </b>" + comment + "</p>";
-            message.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587);
-            smtp.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["EmailSender"], ConfigurationManager.AppSettings["SenderPass"]);
-            smtp.EnableSsl = true;
-            smtp.Send(message);
-            ViewBag.SuccessSend = true;
             ViewBag.FixedFooter = false;
-            return View();
+            if (ModelState.IsValid)
+            {
+                MailAddress from = new MailAddress(ConfigurationManager.AppSettings["EmailSender"]);
+                MailAddress to = new MailAddress(ConfigurationManager.AppSettings["EmailReceiver"]);
+                MailMessage message = new MailMessage(from, to);
+                message.Subject = query.Title;
+                message.Body = "<h2>E-mail отправителя: " + query.Email + "</h2>" + "<p><b>Текст запроса: </b>" + query.Comment + "</p>";
+                message.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient("smtp.mail.ru", 587);
+                smtp.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["EmailSender"], ConfigurationManager.AppSettings["SenderPass"]);
+                smtp.EnableSsl = true;
+                smtp.Send(message);
+                ViewBag.SuccessSend = true;
+                return View();
+            }
+            ViewBag.SuccessSend = false;
+            return View(query);
         }
-        /*
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
-         * */
 
     }
 }

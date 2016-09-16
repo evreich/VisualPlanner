@@ -2,5 +2,11 @@
     ViewBag.Title = "Календарь";
     Layout = "/Views/Shared/_LayoutOrganizer.cshtml";
 }
+@Styles.Render("~/Content/calendar")
+
 <div id="calendar"></div>
+
+@section Scripts {
+    @Scripts.Render("~/Script/calendar")
+}
 

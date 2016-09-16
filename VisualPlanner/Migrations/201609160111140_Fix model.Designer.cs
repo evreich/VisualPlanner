@@ -7,13 +7,13 @@ namespace VisualPlanner.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Change_TaskId : IMigrationMetadata
+    public sealed partial class Fixmodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Change_TaskId));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Fixmodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608130808069_Change_TaskId"; }
+            get { return "201609160111140_Fix model"; }
         }
         
         string IMigrationMetadata.Source

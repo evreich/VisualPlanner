@@ -1,0 +1,152 @@
+﻿@model VisualPlanner.Models.TaskModel
+@using VisualPlanner.Models
+<!-- NewTask modal-->
+<div class="modal fade" id="newTask" role="dialog">
+    <div class="modal-dialog modal-task">
+
+        <!-- Modal content-->
+        <div class="modal-content modal-task">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" style="color:white; opacity:1">&times;</button>
+                <h4 class="modal-title">Создание задачи</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="newTaskForm" method="post" action="/Organizer/Index">
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label">Название<span class="required">*</span></label>
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label">Приоритет<span class="required">*</span></label>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Priority, Priority.Low)
+                                            Низкий
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Priority, Priority.Medium)
+                                            Средний
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Priority, Priority.High)
+                                            Высокий
+                                        </label>
+                                    </div>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Priority, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label">Статус<span class="required">*</span></label>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Status, Status.Suspend)
+                                            В ожидании
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3" style="padding-right: 5px;">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Status, Status.During)
+                                            Выполняется
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Status, Status.Done)
+                                            Выполнена
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Status, Status.Cancel)
+                                            Отменена
+                                        </label>
+                                    </div>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Status, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label">Дата начала<span class="required">*</span></label>
+                            <div class='col-sm-9'>
+                                <div class='input-group date' name="time_begin" id="time_begin_task">
+                                    @Html.TextBoxFor(m => m.TimeBegin, new { @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.TimeBegin, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label">Дата окончания<span class="required">*</span></label>
+                            <div class='col-sm-9'>
+                                <div class='input-group date' name="time_end" id="time_end_task">
+                                    @Html.TextBoxFor(m => m.TimeEnd, new { @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.TimeEnd, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            @Html.LabelFor(m => m.Note, new { @class = "col-sm-3 control-label" })
+                            <div class="col-sm-9">
+                                @Html.TextAreaFor(m => m.Note, new { @class = "form-control form-note" })
+                                @Html.ValidationMessageFor(m => m.Note, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label">Тип<span class="required">*</span></label>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Type, TaskType.Task, new { @id = "type_task", @name = "type_task" })
+                                            Задача
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Type, TaskType.Event, new { @id = "type_event", @name = "type_event" })
+                                            Событие
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="checkbox-inline">
+                                            @Html.RadioButtonFor(m => m.Type, TaskType.Project, new { @id = "type_project", @name = "type_project" })
+                                            Проект
+                                        </label>
+                                    </div>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.Type, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="additional-form"></div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="clearForm(newTaskForm)">Отменить</button>
+                <button type="submit" form="newTaskForm" class="btn btn-success pull-left">Отправить</button>
+            </div>
+        </div>
+
+    </div>
+</div>

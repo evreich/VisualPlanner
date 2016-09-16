@@ -33,6 +33,8 @@
 /*global require:false */
 /*global jQuery:false */
 /*global moment:false */
+
+
 (function (factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
@@ -2483,3 +2485,21 @@
         viewDate: false
     };
 }));
+
+//datepicker
+$(function () {
+    $('#time_begin').datetimepicker({
+        format: 'DD.MM.YYYY',
+        locale: 'ru',
+    });
+    $('#time_end').datetimepicker({
+        format: 'DD.MM.YYYY',
+        locale: 'ru'
+    });
+    $('#time_begin_task').datetimepicker({
+        locale: 'ru',
+    });
+    $('#time_end_task').datetimepicker({
+        locale: 'ru'
+    });
+});

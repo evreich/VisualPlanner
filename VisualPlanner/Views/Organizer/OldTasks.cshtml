@@ -2,3 +2,46 @@
     ViewBag.Title = "Незавершенные задачи";
     Layout = "/Views/Shared/_LayoutOrganizer.cshtml";
 }
+@model PagedList.IPagedList<VisualPlanner.Models.TaskModel>
+@using PagedList.Mvc;
+@using VisualPlanner.Models
+
+@Styles.Render("~/bundles/PagedList")
+
+<div class="row masonry" data-columns>
+    @foreach (var item in Model)
+    {
+        <div class="item">
+            <div class="task">
+                <div class="row task-header">
+                    <div class="pull-left task-title col-sm-10">
+                        <p><i class="fa fa-2x fa-info-circle tooltip-elem" aria-hidden="true" title="@item.Note" data-original-title="@item.Note"></i>&nbsp;@item.Title</p>
+                    </div>
+                    <div class="pull-right task-menu">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" id="task-menu"><i class="fa fa-fw fa-ellipsis-v"></i></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="task-menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-eye"></i> Посмотреть</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-edit"></i> Изменить</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-trash-o"></i>&nbsp; Удалить</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="task-content">
+                    <p><span class="fa fa-hourglass-o"></span>&nbsp; <i>@item.TimeBegin.ToShortDateString()</i> @item.TimeBegin.ToShortTimeString()</p>
+                    <p><span class="fa fa-hourglass"></span>&nbsp; <i>@item.TimeBegin.ToShortDateString()</i> @item.TimeBegin.ToShortTimeString()</p>
+                    <p><span class="glyphicon glyphicon-fire" style="padding-right:6px;"></span>@Enum_Helper.GetDisplayName(item.Priority)</p>
+                    <p><span class="fa fa-crosshairs"></span>&nbsp; @Enum_Helper.GetDisplayName(item.Status)</p>
+                </div>
+            </div>
+        </div>
+    }
+    <br />
+
+</div>
+
+@Html.PagedListPager(Model, page => Url.Action("HotTasks", new { page }))
+
+@Scripts.Render("~/bundles/salvattore")
+@section Scripts {
+    @Scripts.Render("~/Script/datetimepicker")
+}

@@ -11,9 +11,9 @@ namespace VisualPlanner
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery.maskedinput.js",
-                        "~/Scripts/jquery.underscore.js",
+                        "~/Scripts/jquery.underscore.js"));
+            bundles.Add(new ScriptBundle("~/bundles/salvattore").Include(
                         "~/Scripts/salvattore.min.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -37,13 +37,16 @@ namespace VisualPlanner
                       "~/Content/bootstrap-datetimepicker.css"));
             bundles.Add(new StyleBundle("~/Content/calendar").Include(
                       "~/Content/calendar.css"));
+            bundles.Add(new StyleBundle("~/bundles/PagedList").Include(
+                      "~/Content/PagedList.css"));   
             bundles.Add(new ScriptBundle("~/Script/calendar").Include(
-                "~/Scripts/underscore.js",
-                "~/Scripts/ru-RU.js",      
-                "~/Scripts/calendar.js",
-                "~/Scripts/moment.js",
-                "~/Scripts/moment-with-locales.js",
-                "~/Scripts/bootstrap-datetimepicker.js"));
+                    "~/Scripts/underscore.js",
+                    "~/Scripts/ru-RU.js",      
+                    "~/Scripts/calendar.js"));
+            bundles.Add(new ScriptBundle("~/Script/datetimepicker").Include(
+                    "~/Scripts/moment.js",
+                    "~/Scripts/moment-with-locales.js",
+                    "~/Scripts/bootstrap-datetimepicker.js"));
         }
     }
 }

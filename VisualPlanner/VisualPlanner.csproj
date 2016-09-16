@@ -48,6 +48,14 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RestSharp, Version=105.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.2.2\lib\net45\RestSharp.dll</HintPath>
       <Private>True</Private>
@@ -182,13 +190,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608130808069_Change_TaskId.cs" />
-    <Compile Include="Migrations\201608130808069_Change_TaskId.Designer.cs">
-      <DependentUpon>201608130808069_Change_TaskId.cs</DependentUpon>
+    <Compile Include="Migrations\201609160111140_Fix model.cs" />
+    <Compile Include="Migrations\201609160111140_Fix model.Designer.cs">
+      <DependentUpon>201609160111140_Fix model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ExceptionModel.cs" />
+    <Compile Include="Models\HelpViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Models\TaskViewModel.cs" />
@@ -218,6 +227,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\index_bg.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\sidebar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -307,6 +317,9 @@
     <Content Include="Views\Organizer\Search.cshtml" />
     <Content Include="Views\Organizer\OldTasks.cshtml" />
     <Content Include="Views\Organizer\HotTasks.cshtml" />
+    <Content Include="Views\Organizer\_AddTaskFormPartial.cshtml" />
+    <Content Include="Views\Home\_QueryFormPartial.cshtml" />
+    <Content Include="Views\Organizer\_AddProjectFormPartial.cshtml" />
     <None Include="Web.SECRETS.config" />
   </ItemGroup>
   <ItemGroup>
@@ -317,8 +330,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608130808069_Change_TaskId.resx">
-      <DependentUpon>201608130808069_Change_TaskId.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609160111140_Fix model.resx">
+      <DependentUpon>201609160111140_Fix model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

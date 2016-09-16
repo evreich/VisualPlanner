@@ -5,21 +5,30 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Reflection; 
+using System.ComponentModel.DataAnnotations;
 
 namespace VisualPlanner.Models
 {
     public enum Status
     {
+        [Display(Name = "В ожидании")]
         Suspend,
+        [Display(Name = "Выполняется")]
         During,
+        [Display(Name = "Отменена")]
         Cancel,
+        [Display(Name = "Выполнена")]
         Done
     }
 
     public enum Priority
     {
+        [Display(Name = "Низкий")]
         Low,
-        Medium, 
+        [Display(Name = "Средний")]
+        Medium,
+        [Display(Name = "Высокий")]
         High
     }
 
@@ -33,15 +42,34 @@ namespace VisualPlanner.Models
         Project
     }
 
+    public static class Enum_Helper
+    {
+        public static string GetDisplayName(this Enum value)
+        {
+            var type = value.GetType();
+            if (!type.IsEnum) throw new ArgumentException(String.Format("Type '{0}' is not Enum", type));
+
+            var members = type.GetMember(value.ToString());
+            if (members.Length == 0) throw new ArgumentException(String.Format("Member '{0}' not found in type '{1}'", value, type.Name));
+
+            var member = members[0];
+            var attributes = member.GetCustomAttributes(typeof(DisplayAttribute), false);
+            if (attributes.Length == 0) throw new ArgumentException(String.Format("'{0}.{1}' doesn't have DisplayAttribute", type.Name, value));
+
+            var attribute = (DisplayAttribute)attributes[0];
+            return attribute.GetName();
+        }
+    }
+
     public class TaskModel
     {
         [Key]
         [HiddenInput(DisplayValue = false)]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required]
         [ScaffoldColumn(false)]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         
         [ScaffoldColumn(false)]
         public virtual UserModel User { get; set; }
@@ -85,11 +113,11 @@ namespace VisualPlanner.Models
         
         [Display(Name = "Периодичность")]
         [Range(1,1000, ErrorMessage = "Недопустимое значение")]
-        public int Period { get; set; }
+        public int? Period { get; set; }
         
         [Display(Name = "Дата окончания повторений")]
         [DisplayFormat(DataFormatString = "dd/MM/yyyy hh:mm")]
-        public DateTime EndPeriod { get; set; }
+        public DateTime? EndPeriod { get; set; }
 
         [ScaffoldColumn(false)]
         public int? ProjectId { get; set; }
@@ -105,5 +133,22 @@ namespace VisualPlanner.Models
 
         [ScaffoldColumn(false)]
         public virtual List<TaskViewModel> TaskViews { get; set; }
+
+        public TaskModel(string userId, string title, Status status, Priority priority, DateTime timeBegin, DateTime timeEnd, DateTime? endPeriod = null, int? period = null, int? projectId = null, string note = "", bool remind = false, TaskType type = TaskType.Task, bool repeat = false, int? parentTaskId = null)
+        {
+            UserId = userId;
+            Title = title;
+            Status = status;
+            Priority = priority;
+            TimeBegin = timeBegin;
+            TimeEnd = timeEnd;
+            Note = note;
+            Type = type;
+            Remind = remind;
+            ParentTaskId = parentTaskId;
+            Repeat = repeat;
+            Period = period;
+            EndPeriod = endPeriod;
+        }
     }
 }
